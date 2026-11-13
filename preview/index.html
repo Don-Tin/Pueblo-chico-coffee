@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pueblo Chico Coffee — Single-farm coffee from San Luis de Monteverde, Costa Rica</title>
+<meta name="description" content="Honey-processed Arabica grown on Finca Querencia in San Luis de Monteverde, Costa Rica. SCA 86. Notes of caramel, cacao, nuts and citrus. A tree planted for every bag. Order coffee or book a coffee tour.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../images/logo.png" type="image/png">
+<link rel="preload" href="../fonts/ocotillo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Ocotillo';src:url('../fonts/ocotillo.woff2') format('woff2'),url('../fonts/ocotillo.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+
+:root{
+  --cream:#EEE9DC; --sand:#D4CFB9; --ink:#24251F; --rust:#A7442B; --sage:#7E8F68;
+  --line:rgba(36,37,31,.18);
+  --display:'Ocotillo', Georgia, serif;
+  --body:'Geist', system-ui, -apple-system, sans-serif;
+  --wrap:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+
+/* language toggle — class-based, both versions in the markup */
+body.lang-en [data-lang="es"], body.lang-es [data-lang="en"]{display:none !important}
+
+/* header */
+.bar{position:sticky;top:0;z-index:50;background:var(--rust);color:var(--ink)}
+.bar-inner{max-width:var(--wrap);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:34px;height:auto}
+.brand span{font-family:var(--display);font-size:19px;text-transform:uppercase;letter-spacing:-.02em;line-height:1;padding-top:4px}
+.langs{display:flex;gap:4px}
+.langs button{font:500 12px var(--body);letter-spacing:.06em;text-transform:uppercase;background:none;border:1px solid transparent;color:var(--ink);padding:5px 9px;cursor:pointer}
+.langs button.active{border-color:var(--ink)}
+.menu{border-bottom:1px solid var(--line);background:var(--cream);position:sticky;top:58px;z-index:40}
+.menu ul{max-width:var(--wrap);margin:0 auto;padding:12px 24px;list-style:none;display:flex;gap:26px;overflow-x:auto;scrollbar-width:none}
+.menu ul::-webkit-scrollbar{display:none}
+.menu a{text-decoration:none;font-size:13px;white-space:nowrap}
+.menu a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* shared */
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:-.025em;line-height:1.02}
+h1{font-size:clamp(44px,7vw,84px)}
+h2{font-size:clamp(30px,4.2vw,48px);margin-bottom:22px}
+h3{font-size:22px;margin-bottom:8px}
+p+p{margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:14px;background:var(--rust);color:var(--cream);text-decoration:none;font-size:14px;padding:14px 22px;border:1px solid var(--rust);transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--rust)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--cream)}
+.link{display:inline-flex;gap:10px;font-size:14px;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px}
+.arrow{font-size:15px;line-height:1}
+section{border-top:1px solid var(--line)}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding-top:64px;padding-bottom:72px}
+.hero p.lede{font-size:17px;max-width:30em;margin:26px 0 30px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.hero figure img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.definition{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;max-width:32em}
+.definition em{font-family:var(--display);font-style:normal;text-transform:uppercase;font-size:15px}
+
+/* explore grid */
+.explore{padding:56px 0 72px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px}
+.card{text-decoration:none;display:block}
+.card .ph{background:var(--sand);overflow:hidden}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .5s}
+.card:hover img{transform:scale(1.03)}
+.card .row{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px}
+.card h3{font-size:24px;margin:0}
+.card p{font-size:13px;margin-top:4px}
+
+/* feature sections */
+.feature{padding:80px 0}
+.feature .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.feature.flip figure{order:2}
+.feature figure img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.feature .text{max-width:34em}
+.feature .actions{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:28px}
+.feature.dark{background:var(--ink);color:var(--cream);border-top:none}
+.feature.dark .btn.ghost{color:var(--cream);border-color:var(--cream)}
+.feature.dark .btn.ghost:hover{background:var(--cream);color:var(--ink)}
+.feature.dark .link{border-color:var(--cream)}
+.feature.sand{background:var(--sand)}
+.note{font-size:12px;opacity:.75;margin-top:16px}
+
+/* stay */
+.stay{padding:80px 0}
+.stay .intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:44px}
+.houses{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.house img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--sand)}
+.house h3{margin-top:16px}
+.house .meta{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:10px}
+.house p{font-size:14px;margin-bottom:16px}
+.amen{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
+.amen span{border:1px solid var(--line);padding:6px 12px;font-size:12px}
+
+/* farm */
+.farm{padding:80px 0}
+.farm .cols{display:grid;grid-template-columns:1.1fr .9fr;gap:56px}
+.facts{border-top:1px solid var(--ink)}
+.facts div{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.facts b{font-weight:500}
+.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:56px}
+.strip img{width:100%;aspect-ratio:1/1;object-fit:cover}
+
+/* footer */
+footer{background:var(--rust);color:var(--ink);padding:56px 0 28px}
+footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:32px}
+footer h4{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:16px;margin-bottom:12px}
+footer ul{list-style:none;font-size:14px}
+footer li{margin-bottom:6px}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer .logo{width:120px;margin-bottom:14px}
+footer .fine{margin-top:44px;padding-top:18px;border-top:1px solid rgba(36,37,31,.3);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:900px){
+  .hero .wrap,.feature .wrap,.stay .intro,.farm .cols{grid-template-columns:1fr;gap:32px}
+  .feature.flip figure{order:0}
+  .grid,.houses{grid-template-columns:1fr 1fr}
+  .strip{grid-template-columns:repeat(3,1fr)}
+  footer .cols{grid-template-columns:1fr 1fr}
+  .hero figure img{aspect-ratio:4/3}
+}
+@media (max-width:560px){
+  .grid,.houses{grid-template-columns:1fr}
+  .brand span{font-size:16px}
+  .hero .wrap{padding-top:36px}
+  .feature,.stay,.farm{padding:56px 0}
+}
+
+/* Pueblo Chico: same family system, black bar like the coffee bag */
+.bar{background:var(--ink);color:var(--cream)}
+.bar .brand img{width:22px;filter:invert(1) sepia(.2) brightness(1.05)}
+footer .logo{filter:invert(1) sepia(.2) brightness(1.05)}
+.langs button{color:var(--cream)} .langs button.active{border-color:var(--cream)}
+.family{background:var(--ink);color:var(--cream);opacity:.92;border-top:1px solid rgba(238,233,220,.15)}
+.family ul{max-width:var(--wrap);margin:0 auto;padding:7px 24px;list-style:none;display:flex;gap:18px;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.family a{text-decoration:none;opacity:.8} .family a:hover{opacity:1}
+.menu{top:58px}
+.hero .bean{width:64px;margin-bottom:22px}
+.hero figure video{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--sand);display:block}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.tags span{border:1px solid var(--line);padding:6px 12px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.specs{border-top:1px solid var(--ink);margin-top:8px}
+.specs div{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.specs b{font-weight:500;text-align:right}
+.order{background:var(--ink);color:var(--cream);text-align:center;padding:88px 0}
+.order h2{margin-bottom:16px}
+.order p{max-width:34em;margin:0 auto}
+.order .actions{justify-content:center;display:flex;gap:18px;flex-wrap:wrap;margin-top:30px;align-items:center}
+.order .btn.ghost{color:var(--cream);border-color:var(--cream)}
+.order .btn.ghost:hover{background:var(--cream);color:var(--ink)}
+.farmlink{padding:80px 0}
+.farmlink .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.farmlink img{width:100%;aspect-ratio:16/10;object-fit:cover}
+footer{background:var(--ink);color:var(--cream)}
+footer .fine{border-top-color:rgba(238,233,220,.25)}
+@media (max-width:900px){.farmlink .wrap{grid-template-columns:1fr;gap:28px}}
+</style>
+</head>
+<body class="lang-en">
+
+<header class="bar">
+  <div class="bar-inner">
+    <a class="brand" href="#top"><img src="../images/logo.png" alt="" width="22" height="24"><span>Pueblo Chico Coffee</span></a>
+    <div class="langs">
+      <button type="button" data-set-lang="en" class="active">English</button>
+      <button type="button" data-set-lang="es">Español</button>
+    </div>
+  </div>
+</header>
+
+<nav class="menu" aria-label="Main">
+  <ul>
+    <li><a href="#coffee"><span data-lang="en">The coffee</span><span data-lang="es">El café</span></a></li>
+    <li><a href="#grown"><span data-lang="en">How it's grown</span><span data-lang="es">Cómo se cultiva</span></a></li>
+    <li><a href="#tours"><span data-lang="en">Coffee tours</span><span data-lang="es">Tours de café</span></a></li>
+    <li><a href="#order"><span data-lang="en">Order</span><span data-lang="es">Pedidos</span></a></li>
+    <li><a href="https://www.querenciahomestead.com/"><span data-lang="en">Finca Querencia ↗</span><span data-lang="es">Finca Querencia ↗</span></a></li>
+  </ul>
+</nav>
+
+<main id="top">
+
+<section class="hero" style="border-top:none">
+  <div class="wrap">
+    <div>
+      <img class="bean" src="../images/logo.png" alt="Pueblo Chico coffee bean logo">
+      <p class="eyebrow"><span data-lang="en">Single farm · Finca Querencia · Costa Rica</span><span data-lang="es">Una sola finca · Finca Querencia · Costa Rica</span></p>
+      <h1>Pueblo Chico Coffee</h1>
+      <p class="lede" data-lang="en">Honey-processed Arabica grown in the shade of the Monteverde cloud forest, 1,200 meters above the Pacific.</p>
+      <p class="lede" data-lang="es">Arábica proceso honey, cultivado a la sombra del bosque nuboso de Monteverde, a 1.200 metros sobre el Pacífico.</p>
+      <div class="actions">
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScQH1AMJsmMECzKreGFZrRlKeB2z4kU9BeUIuH-bfmZtm_hkA/viewform" target="_blank" rel="noopener"><span data-lang="en">Order coffee</span><span data-lang="es">Pedir café</span> <span class="arrow">↗</span></a>
+        <a class="link" href="#tours"><span data-lang="en">Book a coffee tour</span><span data-lang="es">Reservar un tour</span> <span class="arrow">↓</span></a>
+      </div>
+      <div class="tags">
+        <span><span data-lang="en">100% Arabica</span><span data-lang="es">100% Arábica</span></span><span><span data-lang="en">Honey process</span><span data-lang="es">Proceso honey</span></span><span>SCA 86</span><span><span data-lang="en">Carbon negative</span><span data-lang="es">Carbono negativo</span></span>
+      </div>
+    </div>
+    <figure><video src="../images/coffee-harvest.mp4" poster="../images/coffee-cherries.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Coffee harvest on Finca Querencia"></video></figure>
+  </div>
+</section>
+
+<section class="feature" id="coffee">
+  <div class="wrap">
+    <div class="text">
+      <p class="eyebrow"><span data-lang="en">Coffee with a purpose</span><span data-lang="es">Café con propósito</span></p>
+      <h2><span data-lang="en">A small village. A small batch. A small footprint.</span><span data-lang="es">Pueblo chico. Lote chico. Huella chica.</span></h2>
+      <p data-lang="en">Pueblo Chico is more than good coffee. For every bag sold, we plant a tree with the <a href="https://www.fccmonteverde.org/pacific-slope-initiative.html" target="_blank" rel="noopener">Costa Rican Conservation Foundation</a>, restoring native forest and the wildlife corridors that link our valley to the Monteverde Reserve.</p>
+      <p data-lang="es">Pueblo Chico es más que un buen café. Por cada bolsa vendida sembramos un árbol con la <a href="https://www.fccmonteverde.org/pacific-slope-initiative.html" target="_blank" rel="noopener">Fundación Conservacionista Costarricense</a>, restaurando bosque nativo y los corredores biológicos que unen nuestro valle con la Reserva de Monteverde.</p>
+      <p data-lang="en">Honey-processed on the farm, it keeps the bright, layered character of cloud-forest coffee: cacao, caramel, roasted nuts and a clean citrus acidity.</p>
+      <p data-lang="es">Procesado honey en la finca, conserva el carácter brillante y complejo del café de bosque nuboso: cacao, caramelo, nueces tostadas y una acidez cítrica limpia.</p>
+    </div>
+    <div>
+      <p class="eyebrow"><span data-lang="en">From a single farm, in a single valley</span><span data-lang="es">De una sola finca, en un solo valle</span></p>
+      <div class="specs">
+        <div><span data-lang="en">Flavor</span><span data-lang="es">Sabor</span><b><span data-lang="en">Caramel, cacao, nuts, citrus</span><span data-lang="es">Caramelo, cacao, nueces, cítricos</span></b></div>
+        <div><span data-lang="en">Elevation</span><span data-lang="es">Altitud</span><b>1,200 m</b></div>
+        <div><span data-lang="en">Varieties</span><span data-lang="es">Variedades</span><b>Caturra, Catuaí, Costa Rica 95</b></div>
+        <div><span data-lang="en">Process</span><span data-lang="es">Proceso</span><b>Honey</b></div>
+        <div><span data-lang="en">SCA score</span><span data-lang="es">Puntaje SCA</span><b>86</b></div>
+        <div><span data-lang="en">Origin</span><span data-lang="es">Origen</span><b><span data-lang="en">San Luis de Monteverde, Costa Rica</span><span data-lang="es">San Luis de Monteverde, Costa Rica</span></b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature flip sand" id="grown">
+  <div class="wrap">
+    <figure><img src="../images/drying-beds.jpg" alt="Coffee on the honey-process drying beds" loading="lazy"></figure>
+    <div class="text">
+      <p class="eyebrow"><span data-lang="en">How it's grown</span><span data-lang="es">Cómo se cultiva</span></p>
+      <h2><span data-lang="en">No synthetic shortcuts</span><span data-lang="es">Sin atajos químicos</span></h2>
+      <p data-lang="en">We grow in small lots among forest corridors, and farm regeneratively: biological pest management, compost made on the farm, bioferments, and careful hand cultivation instead of synthetic inputs.</p>
+      <p data-lang="es">Cultivamos en lotes pequeños entre corredores de bosque, con prácticas regenerativas: control biológico de plagas, abono orgánico hecho en la finca, biofermentos y trabajo manual cuidadoso en vez de insumos sintéticos.</p>
+      <p data-lang="en">Cherries are picked by hand at peak ripeness, then honey-processed and dried slowly on raised beds right here on the farm.</p>
+      <p data-lang="es">Las cerezas se cosechan a mano en su punto, y luego se procesan con el método honey y se secan lentamente en camas elevadas aquí mismo en la finca.</p>
+    </div>
+  </div>
+</section>
+
+<section class="feature" id="tours">
+  <div class="wrap">
+    <figure><img src="../images/harvest.jpg" alt="Coffee harvest" loading="lazy"></figure>
+    <div class="text">
+      <p class="eyebrow"><span data-lang="en">Coffee tours</span><span data-lang="es">Tours de café</span></p>
+      <h2><span data-lang="en">From flower to cup</span><span data-lang="es">De la flor a la taza</span></h2>
+      <p data-lang="en">Walk the coffee with Walker, who grows it. See the plants, the picking, the drying beds and the processing, then sit down for a cup of what it all becomes. Small groups, on a working family farm rather than a show farm.</p>
+      <p data-lang="es">Recorra los cafetales con Walker, quien los cultiva. Vea las matas, la cosecha, las camas de secado y el beneficiado, y luego siéntese a tomarse una taza del resultado. Grupos pequeños, en una finca familiar de verdad.</p>
+      <div class="actions">
+        <a class="btn" href="https://wa.me/50689613671" target="_blank" rel="noopener"><span data-lang="en">Book a tour with Walker on WhatsApp</span><span data-lang="es">Reserve con Walker por WhatsApp</span> <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <p class="eyebrow"><span data-lang="en">Direct from the farm</span><span data-lang="es">Directo de la finca</span></p>
+    <h2><span data-lang="en">Order Pueblo Chico</span><span data-lang="es">Pida Pueblo Chico</span></h2>
+    <p data-lang="en">We take orders directly through our order form. Tell us how many bags you'd like and we'll be in touch to confirm. Online shop coming soon.</p>
+      <p data-lang="es">Recibimos pedidos directamente por nuestro formulario. Díganos cuántas bolsas quiere y le contactamos para confirmar. Tienda en línea muy pronto.</p>
+    <div class="actions">
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScQH1AMJsmMECzKreGFZrRlKeB2z4kU9BeUIuH-bfmZtm_hkA/viewform" target="_blank" rel="noopener"><span data-lang="en">Order coffee</span><span data-lang="es">Pedir café</span> <span class="arrow">↗</span></a>
+      <a class="btn ghost" href="https://wa.me/50689613671" target="_blank" rel="noopener">WhatsApp +506 8961 3671</a>
+    </div>
+  </div>
+</section>
+
+<section class="farmlink" id="farm">
+  <div class="wrap">
+    <img src="../images/pacific-view.jpg" alt="View toward the Pacific from the upper pastures" loading="lazy">
+    <div>
+      <p class="eyebrow"><span data-lang="en">Where it grows</span><span data-lang="es">Dónde se cultiva</span></p>
+      <h2>Finca Querencia</h2>
+      <p data-lang="en">Pueblo Chico is grown on Finca Querencia, our family farm at the end of the road in San Luis de Monteverde — a working dairy and coffee farm where you can also stay, get tattooed, and buy fresh produce.</p>
+      <p data-lang="es">Pueblo Chico se cultiva en Finca Querencia, nuestra finca familiar al final del camino en San Luis de Monteverde — una lechería y cafetal donde también puede hospedarse, tatuarse y comprar productos frescos.</p>
+      <div class="actions" style="margin-top:24px"><a class="btn ghost" href="https://www.querenciahomestead.com/"><span data-lang="en">Visit Finca Querencia</span><span data-lang="es">Conozca Finca Querencia</span> <span class="arrow">↗</span></a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <img class="logo" src="../images/logo.png" alt="Pueblo Chico Coffee" style="width:70px" loading="lazy">
+        <p style="font-size:13px"><span data-lang="en">Finca Querencia · San Luis de Monteverde · Costa Rica</span><span data-lang="es">Finca Querencia · San Luis de Monteverde · Costa Rica</span></p>
+      </div>
+      <div>
+        <h4><span data-lang="en">Coffee</span><span data-lang="es">Café</span></h4>
+        <ul>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScQH1AMJsmMECzKreGFZrRlKeB2z4kU9BeUIuH-bfmZtm_hkA/viewform" target="_blank" rel="noopener"><span data-lang="en">Order coffee</span><span data-lang="es">Pedir café</span> ↗</a></li>
+          <li><a href="#tours"><span data-lang="en">Coffee tours</span><span data-lang="es">Tours de café</span></a></li>
+          <li><a href="https://instagram.com/PuebloChicoCoffee" target="_blank" rel="noopener">@pueblochicocoffee ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></h4>
+        <ul>
+          <li><a href="https://wa.me/50689613671" target="_blank" rel="noopener">WhatsApp +506 8961 3671 ↗</a></li>
+          <li><a href="https://instagram.com/PuebloChicoCoffee" target="_blank" rel="noopener">Instagram ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span data-lang="en">The family</span><span data-lang="es">La familia</span></h4>
+        <ul>
+          <li><a href="https://www.querenciahomestead.com/">Finca Querencia ↗</a></li>
+          <li><a href="https://www.querenciahomestead.com/#stay"><span data-lang="en">Stay on the farm</span><span data-lang="es">Hospedaje</span> ↗</a></li>
+          <li><a href="https://papayotattoo.com/" target="_blank" rel="noopener">Papayo Tattoo ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fine">
+      <span>© 2026 Pueblo Chico Coffee</span>
+      <span><span data-lang="en">Carbon negative · Chemical free</span><span data-lang="es">Carbono negativo · Sin químicos</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KEY='pc-lang';
+  function setLang(l){
+    document.body.classList.remove('lang-en','lang-es');document.body.classList.add('lang-'+l);
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-set-lang]').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-set-lang')===l)});
+    try{localStorage.setItem(KEY,l)}catch(e){}
+  }
+  var q=new URLSearchParams(location.search).get('lang');var saved=null;try{saved=localStorage.getItem(KEY)}catch(e){}
+  setLang(q==='es'||q==='en'?q:(saved||((navigator.language||'').slice(0,2)==='es'?'es':'en')));
+  document.querySelectorAll('[data-set-lang]').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-set-lang'))})});
+})();
+</script>
+</body>
+</html>
